@@ -1,94 +1,178 @@
-# Taller Gemini - Roles y Procesamiento Inteligente
+# Tutor Técnico de Programación con IA
+# Descripción del Proyecto
 
-Autor: Juan Esteban Pinzon Preciado y Jose Felipe Sanabria Lombana
+Este proyecto consiste en el desarrollo de un **Tutor Técnico de Programación basado en Inteligencia Artificial**, capaz de responder preguntas relacionadas con conceptos de programación y ayudar a los usuarios a comprender diferentes temas del desarrollo de software.
 
-Este repositorio contiene el desarrollo del taller práctico utilizando la API de Google Gemini y el manejo de roles mediante system_instruction.
+El sistema utiliza **IA generativa** para analizar preguntas y proporcionar explicaciones claras, manteniendo además un **historial de conversación** que permite conservar el contexto de las interacciones.
+
+La aplicación incluye una **interfaz gráfica interactiva**, permitiendo que el usuario pueda comunicarse fácilmente con el tutor técnico.
 
 
-Ejercicio 1
+# Objetivos del Proyecto
 
-Se realiza la conexión con la API de Gemini utilizando una API Key almacenada en un archivo `.env`.
+* Implementar un **asistente de programación basado en IA**
+* Utilizar **roles o instrucciones específicas** para controlar el comportamiento del modelo
+* Mantener un **historial de conversación**
+* Desarrollar una **interfaz gráfica sencilla para interacción con el usuario**
+* Integrar diferentes componentes del sistema en una aplicación funcional
 
-El modelo genera una explicación sobre qué es la inferencia en Inteligencia Artificial.
+# Arquitectura del Sistema
 
-Ejercicio 2
+El sistema está compuesto por los siguientes componentes principales:
 
-Se implementa la función:
+1. **Instruction (Role)**
+   Define el comportamiento del asistente de inteligencia artificial.
 
-```python
-procesar_articulo(texto, tarea)
+2. **Historial en JSON**
+   Guarda las conversaciones entre el usuario y el tutor.
+
+3. **Backend en Python**
+   Procesa las preguntas y conecta con la IA.
+
+4. **Interfaz Gráfica**
+   Permite interactuar con el tutor técnico.
+
+
+#  Instruction (Rol del Tutor)
+
+El modelo de inteligencia artificial recibe una **instrucción inicial** que define su comportamiento como un tutor de programación.
+
+Esto permite que el asistente:
+
+* explique conceptos de programación
+* responda preguntas técnicas
+* mantenga un estilo educativo y claro
+
+### Ejemplo de código del rol
+
+
+
+###  Imagen del Instruction Role
+
+<img width="1110" height="693" alt="image" src="https://github.com/user-attachments/assets/2b6c0a4a-4c56-4187-858f-8dfedd704ee0" />
+
+
+# 📂 Historial de Conversación en JSON
+
+El sistema guarda cada interacción en un archivo **JSON**, permitiendo conservar el contexto de la conversación.
+
+Esto permite que el asistente recuerde preguntas anteriores y genere respuestas más coherentes.
+
+### Ejemplo de estructura del historial
+
+```json
+[
+  {
+    "usuario": "¿Qué es una variable?",
+    "respuesta": "Una variable es un espacio en memoria..."
+  }
+]
 ```
 
-Permite realizar las siguientes tareas:
+###  Imagen del historial en código
 
-- resumir -> genera un resumen ejecutivo
-- profesionalizar -> convierte el texto a tono formal y técnico
-- simplificar -> lenguaje sencillo
-- ampliar -> agrega profundidad conceptual
+<img width="1037" height="697" alt="image" src="https://github.com/user-attachments/assets/7c9330f9-8c10-4023-90be-7c149b5094c7" />
 
-Se utiliza `system_instruction` definiendo el rol como:
 
-"Editor Editorial de prestigio"
 
-Ejercicio 3
+# 🖥 Interfaz Gráfica
 
-Se crea un chat multi-turno utilizando:
+La aplicación cuenta con una **interfaz gráfica simple** que permite al usuario interactuar con el tutor.
 
-- system_instruction
-- history (few-shot prompting)
-- Rol de vendedor tecnológico
+Funciones principales de la interfaz:
 
-Permite mantener conversación hasta que el usuario escriba "finalizar".
+* escribir preguntas
+* visualizar respuestas del tutor
+* mantener el flujo de conversación
 
-Tecnologías Utilizadas
+### Imagen de la interfaz gráfica
 
-- Python 3
-- google-genai
-- python-dotenv
+<img width="1210" height="657" alt="image" src="https://github.com/user-attachments/assets/d965a37c-b597-4d38-9413-c64c68b87e99" />
 
-Ejecución
 
-1. Crear archivo `.env` con:
+#  Historial en la Interfaz
 
+La interfaz también muestra el **historial completo de conversación**, permitiendo que el usuario pueda revisar preguntas y respuestas anteriores.
+
+### Imagen del historial en la interfaz
+
+<img width="1309" height="629" alt="image" src="https://github.com/user-attachments/assets/ad2ae7a1-0861-4caf-b1f2-36702e8f3829" />
+
+
+#  Instalación del Proyecto
+
+## 1️⃣ Clonar el repositorio
+
+```bash
+git clone https://github.com/Esteban812112/Tutor-t-cnico-de-programaci-n.git
 ```
-GEMINI_API_KEY=TU_API_KEY
+
+---
+
+## 2️⃣ Entrar a la carpeta del proyecto
+
+```bash
+cd Tutor-t-cnico-de-programaci-n
 ```
 
-2. Instalar dependencias:
+---
 
+## 3️⃣ Crear entorno virtual
+
+```bash
+python -m venv env
 ```
+
+---
+
+## 4️⃣ Activar entorno virtual
+
+En Windows
+
+```bash
+env\Scripts\activate
+```
+
+---
+
+## 5️⃣ Instalar dependencias
+
+```bash
 pip install -r requirements.txt
 ```
 
-3. Ejecutar:
-
-```
-python ejercicio1.py
-python ejercicio2.py
-python ejercicio3.py
-```
-
 ---
 
-Evidencias de funcionamiento
+# ▶️Ejecución del Proyecto
 
-Ejercicio 1 en ejecución:
+Para ejecutar la aplicación:
 
-<img width="1911" height="1029" alt="image" src="https://github.com/user-attachments/assets/0b15c1ab-2f3f-494a-8063-bd1ddcda31fd" />
+```bash
+python app.py
+```
 
+Luego abrir en el navegador:
 
-Ejercicio 2 en ejecución:
-<img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/c228aa4f-7395-4a35-96da-15eec9db91f8" />
-
-
-Ejercicio 3 en ejecución:
-
-<img width="1919" height="1037" alt="image" src="https://github.com/user-attachments/assets/ccb87c6e-6faf-47f0-a79c-1652b241251c" />
-
+```
+http://127.0.0.1:5000
+```
 
 
----
 
-##  Conclusión
+#  Estructura del Proyecto
 
-El taller demuestra el uso de roles, configuración mediante system_instruction, procesamiento dinámico de texto y chat multi-turno utilizando la API de Google Gemini.
+```
+tutor-programacion-ia
+│
+├── app.py
+├── tutor.py
+├── historial.py
+├── requirements.txt
+├── historial.json
+│
+├── templates
+│   └── index.html
+│
+└── static
+```
+
